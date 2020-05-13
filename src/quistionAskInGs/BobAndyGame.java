@@ -5,8 +5,11 @@ import java.util.Stack;
 /*
  * "Andy wants to play a game with his little brother, Bob. The game starts with an array of distinct integers and the rules are as follows:
 Bob always plays first and the two players move in alternating turns.
-In a single move, a player chooses the maximum element currently present in the array and removes it as well as all the other elements to its right. For example, if the starting array arr =[2,3,5,4,1], then it becomes arr=[2,3] after the first move because we remove the maximum element (i.e., 5) and all elements to its right (i.e., 4 and 1).
-The modifications made to the array during each turn are permanent, so the next player continues the game with the remaining array. The first player who is unable to make a move loses the game.
+In a single move, a player chooses the maximum element currently present in the array and removes it as well as all the other elements to its right.
+For example, if the starting array arr =[2,3,5,4,1], then it becomes arr=[2,3] after the first move because we remove the maximum element (i.e., 5) 
+and all elements to its right (i.e., 4 and 1).
+The modifications made to the array during each turn are permanent, so the next player continues the game with the remaining array. 
+The first player who is unable to make a move loses the game.
 Andy and Bob play 'g' games. Given the initial array for each game, find and print the name of the winner on a new line. If Andy wins, print ANDY; if Bob wins, print BOB.
 To continue the example above, in the next move Andy will remove 3. Bob will then remove 2 and win because there are no more integers to remove.
 Function Description
@@ -36,9 +39,8 @@ public class BobAndyGame {
 	}
 
 	private static void AnotherSolution() {
-		// TODO Auto-generated method stub
-		int arr[] = { 6, 2, 3, 5, 4, 1 };
-		// int arr[] ={5,2,6,3,4};
+		//int arr[] = {2, 3, 5, 4, 1,6 };
+		 int arr[] ={5,2,6,3,4};
 		// int arr[] ={3,1};
 		boolean bob = true;
 		boolean andy = false;
@@ -58,20 +60,20 @@ public class BobAndyGame {
 
 		while (!stk1.isEmpty() && !stk2.isEmpty()) {
 			if (bob) {
-				int ele = stk2.pop();
-				System.out.println("Bob Picks : " + ele);
-				while (!stk1.isEmpty() && ele != stk1.peek())
+				int value = stk2.pop();
+				System.out.println("Bob Picks : " + value);
+				while (!stk1.isEmpty() && value != stk1.peek())
 					stk1.pop();
-				if (ele == stk1.peek())
+				if (value == stk1.peek())
 					stk1.pop();
 				if (!stk1.isEmpty())
 					bob = false;
 			} else {
-				int ele = stk2.pop();
-				System.out.println("Andy Picks : " + ele);
-				while (!stk1.isEmpty() && ele != stk1.peek())
+				int value = stk2.pop();
+				System.out.println("Andy Picks : " + value);
+				while (!stk1.isEmpty() && value != stk1.peek())
 					stk1.pop();
-				if (ele == stk1.peek())
+				if (value == stk1.peek())
 					stk1.pop();
 				if (!stk1.isEmpty())
 					bob = true;
