@@ -1,7 +1,11 @@
 package mock;
 
+import static org.junit.Assert.*;
+
 import java.util.HashMap;
 import java.util.Map;
+
+import org.junit.Test;
 /*
 * Find highest average in 2d array of students scores
 *
@@ -79,4 +83,18 @@ public class GetMaxAverageOfStudents {
 		return arr[p][0];
 	}
 
+	
+	@Test
+	public void testEvr(){
+		String expactedName="Mark";
+		
+		String[][] arr = { { "Bob", "85" }, { "Mark", "100" }, { "Charles", "63" }, { "Mark", "94" },
+				{ "Mark", "100" } };
+		int len = arr.length;
+
+		String Actual = getMaxAverageOfStudents(arr, len);
+		assertEquals(expactedName,Actual);
+		assertNotNull(Actual);
+		assertNull(null);
+	}
 }

@@ -1,6 +1,10 @@
 package mock;
 
+import static org.junit.Assert.*;
+
 import java.util.Scanner;
+
+import org.junit.Test;
 
 public class GivenNumberIsPowerOFTenOrNot {
 
@@ -17,6 +21,12 @@ public class GivenNumberIsPowerOFTenOrNot {
 			n /= 10;
 		}
 		return n == 1;
+	}
+	@Test
+	public void testM1(){
+		
+		assertTrue(givenNumberIsPower(100));
+		assertFalse(givenNumberIsPower(1001));
 	}
 
 }

@@ -1,5 +1,6 @@
 package gs_day2;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -20,7 +21,7 @@ public class FindFirstRepeated {
 
 		char arr[] = str.toCharArray();
 
-		Map<Character, Integer> hm = new LinkedHashMap<>();
+		Map<Character, Integer> hm = new HashMap<>();
 
 		for (char c : arr) {
 			if (c == ' ')

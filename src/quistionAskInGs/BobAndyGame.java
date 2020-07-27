@@ -31,17 +31,40 @@ At this point, the array is empty and Bob cannot make any more moves. This means
  */
 
 public class BobAndyGame {
-	static Stack<Integer> stk1 = new Stack<>();
-	static Stack<Integer> stk2 = new Stack<>();
 
 	public static void main(String[] args) {
-		AnotherSolution();
+		
+		int arr[] = { 2, 3, 5, 4, 1, 6 };
+		// int arr[] ={5,2,6,3,4};
+		// int arr[] ={3,1};
+		AnotherSolution(arr);
+		usingOneStack(arr);
 	}
 
-	private static void AnotherSolution() {
-		//int arr[] = {2, 3, 5, 4, 1,6 };
-		 int arr[] ={5,2,6,3,4};
-		// int arr[] ={3,1};
+	private static void usingOneStack(int arr[]) {
+		Stack<Integer> stk1 = new Stack<>();
+		for (int val : arr) {
+			if (stk1.isEmpty()) {
+				stk1.push(val);
+				continue;
+			}
+
+			if (val > stk1.peek()) {
+				stk1.push(val);
+			}
+		}
+		if (stk1.size() % 2 != 0)
+			System.out.println("Bob Wins");
+		else
+			System.out.println("Andy Wins");
+
+	}
+
+	private static void AnotherSolution(int arr[]) {
+		Stack<Integer> stk1 = new Stack<>();
+		Stack<Integer> stk2 = new Stack<>();
+
+	
 		boolean bob = true;
 		boolean andy = false;
 
@@ -62,7 +85,7 @@ public class BobAndyGame {
 			if (bob) {
 				int value = stk2.pop();
 				System.out.println("Bob Picks : " + value);
-				while (!stk1.isEmpty() && value != stk1.peek())
+				while (value != stk1.peek() && !stk1.isEmpty())
 					stk1.pop();
 				if (value == stk1.peek())
 					stk1.pop();
@@ -71,7 +94,7 @@ public class BobAndyGame {
 			} else {
 				int value = stk2.pop();
 				System.out.println("Andy Picks : " + value);
-				while (!stk1.isEmpty() && value != stk1.peek())
+				while (value != stk1.peek() && !stk1.isEmpty())
 					stk1.pop();
 				if (value == stk1.peek())
 					stk1.pop();

@@ -5,7 +5,7 @@ public class LongestSubString {
 	public static void main(String[] args) {
 
 		//String str = "aabbbbbccd";
-		String str = "abbbbccccd";
+		String str = "ababaaaAAAA";
 		longestSubString(str);
 	}
 
